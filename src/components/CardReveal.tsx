@@ -13,10 +13,10 @@ interface CardRevealProps {
 
 function fireRealisticPopper() {
   const colors = ["#8B0000", "#D4AF37", "#FF6B8A", "#FFD700", "#FF0040", "#FFFFFF"];
-  confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 }, colors, ticks: 300, gravity: 0.8, scalar: 1.2 });
-  setTimeout(() => confetti({ particleCount: 60, angle: 60, spread: 60, origin: { x: 0, y: 0.7 }, colors, ticks: 250, gravity: 0.7 }), 200);
-  setTimeout(() => confetti({ particleCount: 60, angle: 120, spread: 60, origin: { x: 1, y: 0.7 }, colors, ticks: 250, gravity: 0.7 }), 400);
-  setTimeout(() => confetti({ particleCount: 40, angle: 270, spread: 100, origin: { x: 0.5, y: -0.1 }, colors, ticks: 400, gravity: 0.5 }), 800);
+  // Reduced particle counts drastically for smooth performance on lower-end mobile devices
+  confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 }, colors, ticks: 150, gravity: 0.8, scalar: 1 });
+  setTimeout(() => confetti({ particleCount: 25, angle: 60, spread: 45, origin: { x: 0, y: 0.7 }, colors, ticks: 150, gravity: 0.7 }), 200);
+  setTimeout(() => confetti({ particleCount: 25, angle: 120, spread: 45, origin: { x: 1, y: 0.7 }, colors, ticks: 150, gravity: 0.7 }), 400);
 }
 
 

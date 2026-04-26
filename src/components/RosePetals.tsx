@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const TOTAL_PARTICLES = 40;
+const TOTAL_PARTICLES = 20;
 const EMOJIS = ["💕", "❤️", "💖", "💓", "💗"];
 
 interface ParticleProps {
@@ -82,7 +82,7 @@ export default function RosePetals() {
           className="absolute top-0 left-0 text-xl sm:text-2xl"
           style={{
             willChange: "transform",
-            filter: "drop-shadow(2px 2px 6px rgba(0,0,0,0.2))",
+            filter: "drop-shadow(1px 1px 3px rgba(0,0,0,0.15))",
           }}
         >
           {p.emoji}
