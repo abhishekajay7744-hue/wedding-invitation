@@ -24,9 +24,14 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
   const [showPetals, setShowPetals] = useState(false);
 
   useEffect(() => {
-    fireRealisticPopper();
-    const t = setTimeout(() => setShowPetals(true), 100);
-    return () => clearTimeout(t);
+    // Delay ALL heavy effects until AFTER the image animation completes (300ms spring)
+    // This guarantees the image renders first with 100% CPU
+    const confettiTimer = setTimeout(() => fireRealisticPopper(), 350);
+    const petalsTimer = setTimeout(() => setShowPetals(true), 400);
+    return () => {
+      clearTimeout(confettiTimer);
+      clearTimeout(petalsTimer);
+    };
   }, []);
 
   return (
