@@ -47,9 +47,9 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
       {/* ─── Wedding card ───────────────────────────────── */}
       <div className="relative z-10 flex-1 flex items-center justify-center w-full px-5 pt-8 pb-4">
         <motion.div
-          initial={{ scale: 0.82, opacity: 0, y: 30 }}
+          initial={{ scale: 0.9, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, type: "spring", bounce: 0.25, delay: 0.2 }}
+          transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
           /* Card: fills width on tiny phones, capped on larger screens */
           className="relative w-full max-w-xs sm:max-w-sm bg-white shadow-[0_16px_48px_rgba(139,0,0,0.14)] rounded-sm"
         >
@@ -74,7 +74,7 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
                     fill
                     sizes="(max-width: 480px) 85vw, 320px"
                     priority
-                    className="object-contain drop-shadow"
+                    className="object-contain"
                   />
                 </div>
 
@@ -97,9 +97,9 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
 
       {/* ─── CTA button ─────────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 1.4 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
         className="relative z-20 flex flex-col items-center gap-3 pb-8"
       >
         <motion.button
