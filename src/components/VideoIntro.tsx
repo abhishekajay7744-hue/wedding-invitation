@@ -33,7 +33,7 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden bg-[#FFF5F5]"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 1.5 } }}
     >
@@ -44,10 +44,11 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
         playsInline
         preload="auto"
         onEnded={handleVideoEnded}
-        className="absolute inset-0 w-full h-full object-contain sm:object-cover opacity-80"
+        className="absolute inset-0 w-full h-full object-cover"
       />
       
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/90" />
+      {/* Subtle overlay just behind the text for readability, rather than darkening the whole video */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/40" />
 
       <motion.div 
         className="relative z-10 flex flex-col items-center justify-between w-full h-[100dvh] px-4 py-16"
