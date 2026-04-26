@@ -44,7 +44,8 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
         playsInline
         preload="auto"
         onEnded={handleVideoEnded}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover transform-gpu contrast-[1.05] saturate-[1.1] brightness-[1.05] will-change-transform"
+        style={{ WebkitTransform: "translateZ(0)" }}
       />
       
       {/* Subtle overlay just behind the text for readability, rather than darkening the whole video */}
