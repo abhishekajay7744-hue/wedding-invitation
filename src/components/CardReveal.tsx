@@ -32,10 +32,10 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
   return (
     <motion.div
       className="h-[100dvh] w-full flex flex-col items-center justify-between relative overflow-hidden"
-      initial={{ opacity: 0 }}
+      initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.9 }}
+      transition={{ duration: 0.3 }}
     >
       {/* Backgrounds */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#fff0f0] via-[#FFF5F5] to-[#ffe8e8]" />
@@ -46,13 +46,7 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
 
       {/* ─── Wedding card ───────────────────────────────── */}
       <div className="relative z-10 flex-1 flex items-center justify-center w-full px-5 pt-8 pb-4">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
-          /* Card: fills width on tiny phones, capped on larger screens */
-          className="relative w-full max-w-xs sm:max-w-sm bg-white shadow-[0_16px_48px_rgba(139,0,0,0.14)] rounded-sm"
-        >
+        <div className="relative w-full max-w-xs sm:max-w-sm bg-white shadow-[0_16px_48px_rgba(139,0,0,0.14)] rounded-sm">
           {/* Outer gold border */}
           <div className="border-[1.5px] border-[#D4AF37]/60 m-1.5">
             {/* Inner thin border */}
@@ -66,11 +60,11 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
               <div className="flex flex-col items-center px-4 pt-5 pb-6 bg-[#FFFBFB]">
                 <div className="h-px w-12 bg-[#D4AF37]/50 mb-4" />
 
-                {/* Portrait image — aspect-ratio driven, no fixed px height */}
-                <motion.div 
-                  initial={{ scale: 0.3, opacity: 0, rotate: -8 }}
-                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                  transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 15, delay: 0.1 }}
+                {/* Portrait image — explosive pop-in animation */}
+                <motion.div
+                  initial={{ scale: 0, opacity: 0, y: 40 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 18, duration: 0.25 }}
                   className="relative w-full aspect-[3/4] max-h-[38vh]"
                 >
                   <Image
@@ -97,7 +91,7 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* ─── CTA button ─────────────────────────────────── */}
