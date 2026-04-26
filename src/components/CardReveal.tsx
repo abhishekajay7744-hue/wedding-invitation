@@ -67,7 +67,12 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
                 <div className="h-px w-12 bg-[#D4AF37]/50 mb-4" />
 
                 {/* Portrait image — aspect-ratio driven, no fixed px height */}
-                <div className="relative w-full aspect-[3/4] max-h-[38vh]">
+                <motion.div 
+                  initial={{ scale: 0.3, opacity: 0, rotate: -8 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                  transition={{ duration: 0.3, type: "spring", stiffness: 400, damping: 15, delay: 0.1 }}
+                  className="relative w-full aspect-[3/4] max-h-[38vh]"
+                >
                   <Image
                     src="/assets/images/groom&bride.png"
                     alt="Groom and Bride"
@@ -76,7 +81,7 @@ export default function CardReveal({ onProceed }: CardRevealProps) {
                     priority
                     className="object-contain"
                   />
-                </div>
+                </motion.div>
 
                 {/* Names */}
                 <h1
