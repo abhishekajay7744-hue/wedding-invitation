@@ -44,7 +44,7 @@ export default function VideoIntro({ onComplete }: VideoIntroProps) {
         playsInline
         preload="auto"
         onEnded={handleVideoEnded}
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
+        className="absolute inset-0 w-full h-full object-contain sm:object-cover opacity-80"
       />
       
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/90" />

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const TOTAL_PARTICLES = 20;
+const TOTAL_PARTICLES = 15; // Even lighter for mobile
 const EMOJIS = ["💕", "❤️", "💖", "💓", "💗"];
 
 interface ParticleProps {
@@ -14,9 +14,7 @@ interface ParticleProps {
   duration: number;
   delay: number;
   scale: number;
-  rotX: number;
-  rotY: number;
-  rotZ: number;
+  rotation: number;
 }
 
 export default function RosePetals() {
@@ -30,21 +28,17 @@ export default function RosePetals() {
 
       const startXVal = Math.random() * 100;
       const startX = `${startXVal}vw`;
-      
-      // They burst from the bottom centre-ish and spread outwards
-      const endX = `${startXVal + (Math.random() - 0.5) * 60}vw`;
+      const endX = `${startXVal + (Math.random() - 0.5) * 40}vw`;
 
       generated.push({
         id: i,
         emoji,
         startX,
         endX,
-        duration: 5 + Math.random() * 5, // Fall slower (5 to 10 seconds)
-        delay: Math.random() * 2, // Spread out the spawn times
-        scale: 0.6 + Math.random() * 0.5, // Smaller size
-        rotX: Math.random() * 360,
-        rotY: Math.random() * 360,
-        rotZ: Math.random() * 360,
+        duration: 5 + Math.random() * 4,
+        delay: Math.random() * 2,
+        scale: 0.7 + Math.random() * 0.4,
+        rotation: (Math.random() - 0.5) * 360,
       });
     }
     setParticles(generated);
@@ -57,33 +51,26 @@ export default function RosePetals() {
           key={p.id}
           initial={{
             x: p.startX,
-            y: "-10vh", // Start slightly above screen
-            rotateX: 0,
-            rotateY: 0,
-            rotateZ: 0,
+            y: "-10vh",
+            rotate: 0,
             scale: p.scale,
             opacity: 0,
           }}
           animate={{
             y: "110vh",
             x: p.endX,
-            rotateX: p.rotX,
-            rotateY: p.rotY,
-            rotateZ: p.rotZ,
+            rotate: p.rotation,
             scale: p.scale,
-            opacity: [0, 1, 1, 0], // Fade in and fade out
+            opacity: [0, 1, 1, 0],
           }}
           transition={{
             duration: p.duration,
             delay: p.delay,
-            ease: "linear", // Smooth falling
-            repeat: Infinity, // Keep raining!
+            ease: "linear",
+            repeat: Infinity,
           }}
-          className="absolute top-0 left-0 text-xl sm:text-2xl"
-          style={{
-            willChange: "transform",
-            filter: "drop-shadow(1px 1px 3px rgba(0,0,0,0.15))",
-          }}
+          className="absolute top-0 left-0 text-2xl sm:text-3xl"
+          style={{ willChange: "transform" }}
         >
           {p.emoji}
         </motion.div>
